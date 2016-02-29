@@ -7,13 +7,13 @@ cmake_minimum_required (VERSION 2.6)
 # Учитываете установку переменных 
 # <project_name>_BINARY_DIR и  <project_name>_SOURCE_DIR
 # в значение имени каталога с проектом.
-project (http_server)
+project (final)
 
 set (SRC_DIR ${PROJECT_SOURCE_DIR}/src)
 
 # Укажите вместо my-project имя своего приложения
 # - имя исполняемого файла
-set (APP_NAME http_server)
+set (APP_NAME final)
 
 # Управление типом сборки через задание значения
 # предопределенной переменной CMAKE_BUILD_TYPE
@@ -51,11 +51,4 @@ FIND_PACKAGE(Threads)
 add_executable (${APP_NAME} ${SRC})
 target_link_libraries(${APP_NAME} ${Boost_LIBRARIES})
 target_link_libraries(${APP_NAME} ${CMAKE_THREAD_LIBS_INIT})
-
-# Снять комментарий для добавления имени библиотеки
-# требуемой для линковки проекта
-#target_link_libraries(${APP_NAME} name_1)
-#target_link_libraries(${APP_NAME} name_2)
-# ...
-#target_link_libraries(${APP_NAME} name_N)
 

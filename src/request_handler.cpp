@@ -39,6 +39,11 @@ void request_handler::handle_request(const request& req, reply& rep)
     request_path += "index.html";
   }
 
+  // Убираем параметры после ?
+  std::size_t first_question_pos = request_path.find_first_of("?");
+  if (first_question_pos != std::string::npos)
+      request_path = request_path.erase(first_question_pos);
+
   // Determine the file extension.
   std::size_t last_slash_pos = request_path.find_last_of("/");
   std::size_t last_dot_pos = request_path.find_last_of(".");
